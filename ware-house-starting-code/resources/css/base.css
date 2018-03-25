@@ -1,0 +1,385 @@
+@font-face {
+  font-family: 'Arial-MT' ;
+  src: url('../fonts/ari.ttf') format('truetype');
+  font-family: 'Ubuntu-Regular' ;
+  src: url('../fonts/Ubuntu/Ubuntu-Regular.ttf') format('truetype');
+  font-family: 'Kreon-Bold' ;
+  src: url('../fonts/Kreon/Kreon-Bold.ttf') format('truetype');
+}
+
+/* Site-Wide Styles */
+
+html {font-size: 16px;}
+
+body {
+  font-family: 'Ubuntu-Regular', sans-serif;
+  color: #0043A5;
+}
+
+a {
+  text-decoration: none;
+  transition: .3s;
+}
+
+a:hover {color: #FF9000;}
+nav a:hover {
+  color: #FFF;
+  transform: scale(1.025, 1.025);
+}
+.product-list a:hover {transform: scale(1.025, 1.025);}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Kreon-Bold', sans-serif;
+  color: #0043A5;
+}
+h1 {
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 1.15rem;
+}
+
+input,
+textarea,
+select {
+  border-radius: 0px;
+  border: 1px solid #FFA32C;
+  background-color: #FFDFB5;
+  padding: 1rem;
+  color: #0043A5;
+}
+
+::-webkit-input-placeholder {
+  color: #0043A5;
+  opacity: 0.3;
+}
+
+/* Reusable Component - Button */
+
+.button {
+  border-radius: 0px;
+  background-color: #FF9000;
+  text-align: center;
+  color: #FFF;
+  transition: .25s;
+}
+
+.button:hover {
+  color: #FFF;
+  transform: scale(1.025, 1.025);
+}
+
+/* Reusable Component - Image Container */
+
+.image-container {
+  overflow: hidden;
+}
+
+.image-container img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reusable Component - Product List */
+
+.product-list-section {
+  padding: 2rem 5rem 3.75rem 5rem;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  margin-bottom: 3.75rem;
+}
+
+.product-category,
+.product-item {
+  border-radius: 0px;
+  background-color: #FFF;
+  box-shadow: 5px 5px 10px #ccc;
+}
+
+.product-category .description-category {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.product-item .description {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.product-category h3,
+.product-item h3, {
+  margin-bottom: .75rem;
+  color: #0043A5;
+  position: relative;
+  display: block;
+}
+
+.product-category h3 {
+  padding: 1rem;
+}
+
+.product-item .price {
+  color: #0043A5;
+  line-height: 2rem;
+}
+
+
+/* Reusable Component - Form Field With Label */
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  padding-bottom: .75rem;
+}
+
+
+/* Reusable Component - Navigation Breadcrumbs */
+ul.breadcrumb {
+    padding: 0.1rem 5rem;
+    list-style: none;
+    align-items: left;  
+}
+ul.breadcrumb li {
+    display: inline;
+    color: #0043A5;
+    font-size: 0.75rem;
+    align-items: left;
+    font-weight: regular;
+    text-transform: uppercase;
+}
+ul.breadcrumb li:last-of-type {
+    font-weight: bold;
+}
+ul.breadcrumb li+li:before {
+    padding: 0.25rem;
+    color: #0043A5;
+    content: "> ";
+}
+ul.breadcrumb li:first-of-type+li:before {
+    padding: 0.25rem;
+    color: #F00;
+    content: " ";
+}
+ul.breadcrumb li a {
+    text-decoration: underline;
+    font-weight: regular;
+}
+
+
+@media only screen and (max-width: 1100px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Site-Wide Grid */
+
+.container {
+  display: grid;
+  grid-template-areas: 'header'
+                       'nav'
+                       'crumb'
+                       'main'
+                       'footer';
+}
+
+
+/* Header */
+
+header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 22rem 1fr 22rem;
+  align-items: center;
+  padding: .75rem 5rem;
+  font-size: inherit;
+  background-color: #FFDFB5;
+  border-bottom: 1px solid #FFF;
+}
+
+.search-bar {
+  display: flex;
+  border-radius: 0px;
+  width: 100%;
+}
+
+.search-bar input {
+  flex-grow: 1;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 6px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 6px;
+  background-color: #FFF;
+}
+
+.search-bar .icon {
+  background-color: #FF9000;
+  border-radius: 0 6px 6px 0;
+  padding: 1rem;
+}
+
+.search-bar .icon img {
+  vertical-align: middle;
+}
+
+.cart {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  padding: .875rem 1rem;
+  border-radius: 0px;
+  font-weight: 600;
+}
+
+.cart img {
+  padding-left: .625rem;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  grid-area: nav;
+  background-color: #BCD7FF;
+  border-bottom: 1px solid #FFF;
+  padding: 1.313rem 1rem 1.313rem 1rem;
+}
+
+nav a {
+  background-color: #FF9000;
+  border-radius: 0px;
+  width: 8rem;
+  padding: 10px 0rem;
+  margin: 0.5rem 0;
+  text-align: center;
+  color: #FFF;
+  font-weight: 600;
+}
+
+nav a:visted {
+  color: #F00;
+}
+
+@media only screen and (max-width: 1100px) {
+  header {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .search-bar {
+    max-width: 90%;
+    margin: 1rem 0;
+  }
+
+  .cart {
+    justify-self: auto;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  nav {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Breadcrumb */
+#crumb {
+  grid-area: crumb;
+  display: grid;
+  justify-items: left;
+  text-align: left;
+  background-color: #FFF;
+}
+
+/* Main Section */
+
+#main {
+  grid-area: main;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  background-color: #FFF;
+}
+
+#main h2 {
+  margin-bottom: 2rem;
+}
+
+#main .button {
+  box-sizing: border-box;
+  width: 14.375rem;
+  padding: .875rem 0;
+}
+
+
+/* Footer */
+
+footer {
+  grid-area: footer;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  padding: 1.5rem;
+  background-color: #BCD7FF;
+}
+
+footer img {
+  align-self: center;
+  justify-self: center;
+}
+
+footer .links {
+  display: grid;
+}
+
+footer a {
+  color: #0043A5;
+  text-decoration: underline;
+  line-height: 1.8rem;
+}
+
+@media only screen and (max-width: 810px) {
+  footer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  footer img {
+    grid-column: 1 / span 3;
+    margin-bottom: 1rem
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  footer img {
+    grid-column: auto;
+  }
+}
